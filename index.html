@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - slider</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="logo">
+                <a href="">BRAND</a>
+            </div>
+            <nav id="gnb">
+                <ul>
+                    <li>
+                        <a href="">INTRO</a>
+                        <ul>
+                            <li><a href="">HISTORY</a></li>
+                            <li><a href="">CAREER</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">STORY</a>
+                    </li>
+                    <li>
+                        <a href="">PROJECT</a>
+                    </li>
+                    <li>
+                        <a href="">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="slider_01">
+        <div class="slider">
+            <ul>
+                <li class="slide_01" rel="0">
+                    <div class="slide_cont">
+                        <h2>추억이 묻어나는 여행지 #1</h2>
+                        <a href="">자세히 보기</a>
+                    </div>
+                </li>
+                <li class="slide_02" rel="1">
+                    <div class="slide_cont">
+                        <h2>추억이 묻어나는 여행지 #2</h2>
+                        <a href="">자세히 보기</a>
+                    </div>
+                </li>
+                <li class="slide_03" rel="2">
+                    <div class="slide_cont">
+                        <h2>추억이 묻어나는 여행지 #3</h2>
+                        <a href="">자세히 보기</a>
+                    </div>
+                </li>
+                <li class="slide_04" rel="3">
+                    <div class="slide_cont">
+                        <h2>추억이 묻어나는 여행지 #4</h2>
+                        <a href="">자세히 보기</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a href="" class="prev"><img src="img/prev_arrow.svg" alt="이전으로 가기"></a>
+        <a href="" class="next"><img src="img/next_arrow.svg" alt="다음으로 가기"></a>
+
+        <ol>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </section>
+
+    <button class="slider_play_01" type="button">정지 ■</button>
+    <!-- 정지문구 버튼을 눌렀을 때 슬라이드에 자동 기능을 상실시키는 동시에 재생문구 생성
+    재생문구 버튼을 눌렀을 때 슬라이드에 자동 기능을 부여하는 동시에 정지문구 생성 -->
+</body>
+</html>
