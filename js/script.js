@@ -84,4 +84,92 @@ $(document).ready(function(){
         });
         return false;
     });
+    /* ---------------------------------------------------- */
+    // fade 효과 적용 이미지 슬라이드
+    var $slides=$("#slider_02 .slides .slide"); // var $slides=[li.slide.show, li.slide, li.slide, li.slide, li.slide]
+    console.log($slides);
+    var $cur_slide=0;
+    $slides.eq(0).addClass("show");
+    setInterval(function(){
+        var $pause=$("#slider_02").hasClass("pause");
+        var $stop=$(".slider_play_02").hasClass("stop");
+        if($pause==true|$stop==true){
+
+        }else{
+            $slides.removeClass("show");
+            $cur_slide=($cur_slide+1)%$slides.length; // 1,2,3,4,0
+            /* 
+            $cur_slide=(0+1)%5=1
+            $cur_slide=(1+1)%5=2
+            $cur_slide=(2+1)%5=3
+            $cur_slide=(3+1)%5=4
+            $cur_slide=(4+1)%5=0
+            */
+           $slides.eq($cur_slide).addClass("show");
+            /* $index 값 또는 $rel 값 모두 가능
+            var $rel=$(".show").attr("rel");
+            console.log($rel);
+            $("#slider_02 ol li").removeClass("active");
+            $("#slider_02 ol li").eq($rel).addClass("active");
+            */
+           var $index=$(".show").index();
+           console.log($index);
+           $("#slider_02 ol li").removeClass("active");
+           $("#slider_02 ol li").eq($index).addClass("active");
+        }
+    },4000);
+
+    $("#slider_02").hover(function(){
+        $(this).addClass("pause");
+    }, function(){
+        $(this).removeClass("pause");
+    });
+
+    $(".slider_play_02").click(function(){
+        var $state=$(this).hasClass("stop");
+        if($state==false){
+            $(this).addClass("stop");
+            $(this).text("재생 ▶");
+        }else{
+            $(this).removeClass("stop");
+            $(this).text("정지 ■");
+        }
+    });
+
+    $("#slider_02 .prev").click(function(){
+        var $index=$("#slider_02 .slides .show").index(); // check!!!!!!!!
+        $("#slider_02 .slides .slide").removeClass("show");
+        $("#slider_02 ol li").removeClass("active");
+        if($index==0){
+            $("#slider_02 .slides .slide").eq($slides.length-1).addClass("show");
+            $("#slider_02 ol li").eq($slides.length-1).addClass("active");
+        }else{
+            $("#slider_02 .slides .slide").eq($index).prev().addClass("show");
+            $("#slider_02 ol li").eq($index).prev().addClass("active");
+        }
+        return false;
+    })
+
+    $("#slider_02 .next").click(function(){
+        var $index=$("#slider_02 .slides .show").index();
+        $("#slider_02 .slides .slide").removeClass("show");
+        $("#slider_02 ol li").removeClass("active");
+        if($index==4){
+            $("#slider_02 .slides .slide").eq(0).addClass("show");
+            $("#slider_02 ol li").eq(0).addClass("active");
+        }else{
+            $("#slider_02 .slides .slide").eq($index).next().addClass("show");
+            $("#slider_02 ol li").eq($index).next().addClass("active");
+        }
+        return false;
+    });
+
+    $("#slider_02 ol li").click(function(){
+        var $index=$(this).index();
+        console.log($index);
+        $("#slider_02 ol li").removeClass("active");
+        $(this).addClass("active");
+        $("#slider_02 .slides .slide").removeClass("show");
+        $("#slider_02 .slides .slide").eq($index).addClass("show");
+    });
 });
